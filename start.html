@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	<style>
+		body {background-color: white;
+			color: #793698;
+			font-family: "Avenir Next", Arial, sans-serif;
+			padding: 12px;
+		}
+		.msg { font-size: 2.5vh;
+			color: rgb(41, 93, 138); /* #295d8a */
+		}
+		.smallMsg { font-size: 1.75vh;
+			color: #793698;
+		}
+		.topbanner { 
+			height: 15%;
+			margin: auto;
+			text-align: center;
+		}
+		.responsive {
+		  width: 80%;
+		  max-width: 150px;
+		  height: auto;
+		  text-align: center;
+		}
+		.loginBox {
+			width: 60%;
+			text-align: left;
+			margin: auto;
+		}
+		.submitButton {
+			background-color: #793698;
+			color: white;
+			padding: 12px;
+			text-align: center;
+			border-radius: 10px;
+			width: 200px;
+			font-size: 1.5vh;
+			float: right;
+			font-weight: bold;
+			border-left: none;
+			border-bottom: 1px solid #295d8a;
+		}
+		input { font-size: 2.5vh; 
+			border-style: none;
+		}
+		select { font-size: 2.2vh; 
+			border-style: none;
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div class="topbanner">
+		<img src="i/cognomos_logo.png" class="responsive" />
+	</div>
+	<p class="msg">Log In<hr />
+	</p>
+	<div class="loginBox">
+		<form method="post" action = "../cgi-bin/cognomos/cUseroptions.py">
+			<input type="text" name="xid" id="xid" style="color:silver;"
+			 placeholder="Email/User ID" required>
+			<br />
+			<span class="smallMsg">Please enter the email address where you received an invitation or your user id and role.</span><br /><br />
+			
+			<!-- added role -->
+			<label for="role">Log in as... :</label>
+
+			<select name="role" id="role">
+			  <option value="S">Student</option>
+			  <option value="F">Faculty</option>
+			  <option value="A">Administrator</option>
+			  <option value="T">Tech Staff</option>
+			</select>
+			<br />
+			<span class="smallMsg">Select your role.</span><br /><br />
+			
+			<!-- end added role -->
+			<input type="password" name="pword" id="pword" style="color:silver;"
+			 placeholder="Password" required><br />
+			 <span class="smallMsg">Please enter the password you received in 
+				 your invitation email, if you haven&rsquo;t changed it.</span>
+			</span>
+			<p>&nbsp;&nbsp;&nbsp;</p>
+			<input type="hidden" name="user_option" id="user_option" value="l">
+			<input type="submit" class="submitButton" value="SUBMIT" name="submit" id="submit">
+		</form>
+		<p>&nbsp;&nbsp;&nbsp;</p>
+		<p>&nbsp;&nbsp;&nbsp;</p>
+		<p>&nbsp;&nbsp;&nbsp;</p>
+		<hr />
+	</div>
+	<div>
+	<!--
+	<p>&nbsp;</p>
+	<svg height="210" width="500">
+	  <line x1="0" y1="50" x2="800px" y2="50" style="z-index: 5; stroke:rgb(41, 93, 138); stroke-width:1" />
+	</svg> -->
+	<p>
+		<img src="i/cognomos_logo.png" style="height: 40px; align:left;">
+	</p>
+	<p style="text-align:center; color:black;font-size:12px;">Discussion Version 0.1.  <span id="datetime"></span></p>
+</div>
+	<script>
+		document.getElementById("datetime").innerHTML = "Page generated on "+new Date();
+	</script>
+</body>
+</html>
